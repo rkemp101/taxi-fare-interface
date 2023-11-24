@@ -209,8 +209,11 @@ const predict = () => {
       .then(response => response.json())
       .then(data => {
         document.getElementById('fare').classList.remove('d-none');
-        const fareResult = document.getElementById('predict');
+        const fareResult = document.getElementById('predicted-fare');
+        console.log(fareResult)
+        console.log(fare)
         const fare = Math.round(data['fare_amount'] * 100) / 100
+        console.log(fare)
         fareResult.innerText = `$${fare}`;
       })
       .catch((error) => {
